@@ -3,6 +3,7 @@ import { RegisterComponent } from './components/page/register/register.component
 import { LoginComponent } from './components/page/login/login.component';
 import { DashboardComponent } from './components/page/dashboard/dashboard.component';
 import { FlightComponent } from './components/page/flight/flight.component';
+import { HotelComponent } from './components/page/hotel/hotel.component';
 
 export const routes: Routes = [
     // { path: '', component: LoginComponent },
@@ -10,6 +11,7 @@ export const routes: Routes = [
     // { path: 'login', component: LoginComponent },
    
     { path: 'dashboard', component: DashboardComponent},
-    { path: 'flight', component: FlightComponent}
+    { path: 'flight', component: FlightComponent},
+    { path: 'hotel', component: HotelComponent}
     
 ];

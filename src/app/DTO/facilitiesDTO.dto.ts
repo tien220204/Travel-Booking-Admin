@@ -1,5 +1,5 @@
-// export interface facilitiesDTO {
-//     facilityId : number
-//     facilityName : string
-//     isHide : string
-// }
+export interface facilitiesDTO {
+    facilityId : number
+    facilityName : string
+    isHide : string
+}
