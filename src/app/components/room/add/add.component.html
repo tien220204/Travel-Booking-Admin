@@ -1,0 +1,49 @@
+<h3>Add Room</h3>
+<form [formGroup]="addForm" (ngSubmit)="save()">
+  <table>
+    <tbody>
+      <tr>
+        <td>Room Name</td>
+        <td>
+          <input type="text" formControlName="room_name">
+        </td>
+      </tr>
+      <tr>
+        <td>Room Description</td>
+        <td>
+          <textarea cols="20" rows="5" formControlName="room_description"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>Room Price</td>
+        <td>
+          <input type="text" formControlName="room_price">
+        </td>
+      </tr>
+      <tr>
+        <td>Number of Single Beds</td>
+        <td>
+          <input type="number" formControlName="num_of_single_bed">
+        </td>
+      </tr>
+      <tr>
+        <td>Number of Double Beds</td>
+        <td>
+          <input type="number" formControlName="num_of_double_bed">
+        </td>
+      </tr>
+      <tr>
+        <td>Hotel ID</td>
+        <td>
+          <input type="text" formControlName="hotel_id">
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <button type="submit">Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
