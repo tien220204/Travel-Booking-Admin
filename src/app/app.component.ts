@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
 
 @Component({
@@ -12,7 +13,8 @@ import { SidebarComponent } from './components/layout/sidebar/sidebar.component'
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
