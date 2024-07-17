@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add New Tour Person Quantity</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Tour Person Quantity</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Add New Tour Person Quantity</h3>
+              </div>
+
+              <div class="card-body">
+                <form [formGroup]="addForm" (ngSubmit)="save()">
+                  <div class="form-group">
+                    <label for="tourId">Tour ID</label>
+                    <input type="number" class="form-control" id="tourId" formControlName="tourId" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="perMax">Maximum Persons</label>
+                    <input type="number" class="form-control" id="perMax" formControlName="perMax" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="perLeft">Persons Left</label>
+                    <input type="number" class="form-control" id="perLeft" formControlName="perLeft" required>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

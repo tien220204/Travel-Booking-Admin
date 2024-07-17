@@ -1,0 +1,68 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>User Management</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Users</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">User Data</h3>
+                <a [routerLink]="['/add-user']" class="btn btn-primary float-right">Add User</a>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Phone Number</th>
+                      <th>Gender</th>
+                      <th>Is Hidden</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (user of users; track user) {
+                      <tr>
+                        <td>{{ user.userId }}</td>
+                        <td>{{ user.fullname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.gender ? 'Male' : 'Female' }}</td>
+                        <td>{{ user.isHide ? 'Yes' : 'No' }}</td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(user.userId)">Delete</button>
+                          <a [routerLink]="['/edit-user', user.userId]" class="btn btn-sm btn-success">Edit</a>
+                          @if (user.isHide) {
+                            <button type="button" class="btn btn-sm btn-warning" (click)="recover(user.userId.toString())">Recover</button>
+                          }
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

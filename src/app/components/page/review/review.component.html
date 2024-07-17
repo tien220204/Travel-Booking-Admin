@@ -1,0 +1,78 @@
+<div class="wrapper">
+  <!-- Phần đầu giữ nguyên -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Review Management</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Reviews</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Review Data</h3>
+                <a [routerLink]="['/add-review']" class="btn btn-primary float-right">Add Review</a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Review ID</th>
+                      <th>Star Rating</th>
+                      <th>Review Text</th>
+                      <th>User</th>
+                      <th>Hotel ID</th>
+                      <th>Restaurant ID</th>
+                      <th>Is Hidden</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (review of reviews; track review) {
+                      <tr>
+                        <td>{{ review.reviewId }}</td>
+                        <td>{{ review.reviewStar }}</td>
+                        <td>{{ review.reviewText }}</td>
+                        <td>{{ review.userFullName }} (ID: {{ review.userId }})</td>
+                        <td>{{ review.hotelId }}</td>
+                        <td>{{ review.restaurantId }}</td>
+                        <td>{{ review.isHide }}</td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(review.reviewId.toString())">Delete</button> | 
+                          <a [routerLink]="['/edit-review', {id: review.reviewId}]" class="btn btn-sm btn-success">Edit</a>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->

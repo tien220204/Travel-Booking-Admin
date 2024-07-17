@@ -6,7 +6,7 @@ import { lastValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService {
+export class RoomAPIService {
 
   constructor(
     private baseUrlService: BaseUrlService,
@@ -14,10 +14,30 @@ export class RoomService {
   ) { }
 
   async findAll() {
-    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'room/findAll'));
+    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Room/findAll'));
+  }
+
+  async findById(id: string) {
+    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Room/find/' + id));
   }
 
   async create(formData: FormData) {
-    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'room/create', formData));
-}
+    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Room/create', formData));
+  }
+
+  async update(formData: FormData) {
+    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Room/update', formData));
+  }
+
+  async delete(id: string) {
+    return lastValueFrom(this.httpClient.delete(this.baseUrlService.BaseUrl + 'Room/delete/' + id));
+  }
+
+  async findAllDeleted() {
+    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Room/findAllDeleted'));
+  }
+
+  async recover(id: string) {
+    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Room/recover/' + id, {}));
+  }
 }

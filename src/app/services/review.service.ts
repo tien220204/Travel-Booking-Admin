@@ -2,14 +2,14 @@ import { Injectable } from "@angular/core";
 import { BaseUrlService } from "./base_url.service";
 import { HttpClient } from "@angular/common/http";
 import { lastValueFrom } from "rxjs";
-import { reviewDto } from "../DTO/reviewDto.dto copy";
+
 
 
 
 @Injectable({
     providedIn: 'root'
 })
-export class ReviewService {
+export class ReviewAPIService {
 
     constructor(
         private baseUrlService: BaseUrlService,
@@ -17,14 +17,30 @@ export class ReviewService {
     ) { }
 
     async findAll() {
-        return lastValueFrom(this.httpClient.get<reviewDto[]>(this.baseUrlService.BaseUrl + 'review/findAll'));
-    }
-
-    async findByKeyword(keyword: string) {
-        return lastValueFrom(this.httpClient.get<reviewDto[]>(this.baseUrlService.BaseUrl + 'review/findByKeyword/' + keyword));
+        return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Review/findAll'));
     }
 
     async findById(id: string) {
-        return lastValueFrom(this.httpClient.get<reviewDto>(this.baseUrlService.BaseUrl + 'review/find/' + id));
+        return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Review/find/' + id));
+    }
+
+    async create(formData: FormData) {
+        return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Review/create', formData));
+    }
+
+    async update(formData: FormData) {
+        return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Review/update', formData));
+    }
+
+    async delete(id: string) {
+        return lastValueFrom(this.httpClient.delete(this.baseUrlService.BaseUrl + 'Review/delete/' + id));
+    }
+
+    async findAllDeleted() {
+        return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Review/findAllDeleted'));
+    }
+
+    async recover(id: string) {
+        return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Review/recover/' + id, {}));
     }
 }

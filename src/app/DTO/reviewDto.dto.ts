@@ -1,4 +1,4 @@
-export interface reviewDto {
+export interface ReviewDto {
     reviewId : number
     reviewStar : string
     reviewText : string

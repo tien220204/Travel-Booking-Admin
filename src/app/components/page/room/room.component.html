@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <!-- Phần đầu giữ nguyên -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Room Management</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Rooms</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Room Data</h3>
+                <a [routerLink]="['/add-room']" class="btn btn-primary float-right">Add Room</a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Room ID</th>
+                      <th>Room Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th>Hotel ID</th>
+                      <th>Single Beds</th>
+                      <th>Double Beds</th>
+                      <th>Is Hidden</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (room of rooms; track room) {
+                      <tr>
+                        <td>{{ room.roomId }}</td>
+                        <td>{{ room.roomName }}</td>
+                        <td>{{ room.roomDescription }}</td>
+                        <td>{{ room.roomPrice }}</td>
+                        <td>{{ room.hotelId }}</td>
+                        <td>{{ room.numOfSingleBed }}</td>
+                        <td>{{ room.numOfDoubleBed }}</td>
+                        <td>{{ room.isHide }}</td>
+                        <td>
+                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(room.roomId.toString())">Delete</button> | 
+                          <a [routerLink]="['/edit-room', {id: room.roomId}]" class="btn btn-sm btn-success">Edit</a>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->

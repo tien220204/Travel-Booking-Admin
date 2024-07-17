@@ -1,234 +1,147 @@
+<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="#" class="brand-link">
-    <!-- Uncomment below to keep logo -->
-    <!-- <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+  <a href="index3.html" class="brand-link">
+    <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">AdminLTE 3</span>
   </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">Alexander Pierce</a>
+      </div>
+    </div>
+
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Dashboard -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>
-              Dashboard
-            </p>
-          </a>
-        </li>
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
 
-        <!-- Form -->
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-edit"></i>
-            <p>
-              Form
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <!-- Airport -->
-            <li class="nav-item">
-              <a routerLink="/airport" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Airport</p>
+             <li class="nav-item">
+              <a  class="nav-link" routerLink="dashboard">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  Dashboard
+                  <!-- <span class="badge badge-info right">2</span> -->
+                </p>
               </a>
             </li>
-            <!-- Beach -->
-            <li class="nav-item">
+             <li class="nav-item">
+               <a routerLink="/flight" class="nav-link">
+                 <i class="nav-icon far fa-calendar-alt"></i>
+                 <p>
+                   Flight
+                   <!-- <span class="badge badge-info right">2</span> -->
+                 </p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a routerLink="/hotel" class="nav-link">
+                 <i class="nav-icon far fa-image"></i>
+                 <p>
+                   Hotel
+                 </p>
+               </a>
+             </li>
+             <li class="nav-item">
               <a routerLink="/beach" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Beach</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Beach
+                </p>
               </a>
             </li>
-            <!-- Discount -->
+
+
             <li class="nav-item">
-              <a routerLink="/discount" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Discount</p>
+              <a routerLink="/review" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Review
+                </p>
               </a>
             </li>
-            <!-- Facility -->
-            <li class="nav-item">
-              <a routerLink="/facility" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Facility</p>
-              </a>
-            </li>
-            <!-- Flight -->
-            <li class="nav-item">
-              <a routerLink="/flight" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Flight</p>
-              </a>
-            </li>
-            <!-- Hotel -->
-            <li class="nav-item">
-              <a routerLink="/hotel" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Hotel</p>
-              </a>
-            </li>
-            <!-- Restaurant -->
-            <li class="nav-item">
-              <a routerLink="/restaurant" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Restaurant</p>
-              </a>
-            </li>
-            <!-- Review -->
-            <li class="nav-item">
-              <a [routerLink]="['/review']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Review</p>
-              </a>
-            </li>
-            <!-- Room -->
             <li class="nav-item">
               <a routerLink="/room" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Room</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Room
+                </p>
               </a>
             </li>
-            <!-- Room Hotel Quantity -->
             <li class="nav-item">
               <a routerLink="/room-hotel-quantity" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Room Hotel Quantity</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Room Hotel Quantity
+                </p>
               </a>
             </li>
-            <!-- Site -->
             <li class="nav-item">
               <a routerLink="/site" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Site</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Site
+                </p>
               </a>
             </li>
-            <!-- Site Type -->
             <li class="nav-item">
               <a routerLink="/site-type" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Site Type</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Site Type
+                </p>
               </a>
             </li>
-            <!-- Tour -->
             <li class="nav-item">
               <a routerLink="/tour" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Tour</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Tour
+                </p>
               </a>
             </li>
-            <!-- User -->
             <li class="nav-item">
               <a routerLink="/user" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>User</p>
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  User
+                </p>
               </a>
             </li>
-            <!-- Tour Person Quantity -->
             <li class="nav-item">
-              <a routerLink="/tour-person-quantity" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Tour Person Quantity</p>
+              <a routerLink="/tour_person_quantity" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Tour Person Quantity
+                </p>
               </a>
             </li>
-          </ul>
-        </li>
+
+
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->
 </aside>
-
-<!-- SidebarSearch Form -->
-<div class="form-inline">
-  <div class="input-group" data-widget="sidebar-search">
-    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-    <div class="input-group-append">
-      <button class="btn btn-sidebar">
-        <i class="fas fa-search fa-fw"></i>
-      </button>
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-               <li class="nav-item">
-                <a  class="nav-link" routerLink="dashboard">
-                  <i class="nav-icon far fa-calendar-alt"></i>
-                  <p>
-                    Dashboard
-                    <!-- <span class="badge badge-info right">2</span> -->
-                  </p>
-                </a>
-              </li>
-               <li class="nav-item">
-                 <a routerLink="/flight" class="nav-link">
-                   <i class="nav-icon far fa-calendar-alt"></i>
-                   <p>
-                     Flight
-                     <!-- <span class="badge badge-info right">2</span> -->
-                   </p>
-                 </a>
-               </li>
-               <li class="nav-item">
-                 <a routerLink="/flight" class="nav-link">
-                   <i class="nav-icon far fa-image"></i>
-                   <p>
-                     Hotel
-                   </p>
-                 </a>
-               </li>
-          
-          
-          
-          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-
-    </div>
-  </div>
-</div>
-
-<!-- /.sidebar-menu -->
-<nav class="mt-2">
-  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-    <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="dashboard">
-        <i class="nav-icon far fa-calendar-alt"></i>
-        <p>
-          Dashboard
-          <!-- <span class="badge badge-info right">2</span> -->
-        </p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/flight" class="nav-link">
-        <i class="nav-icon far fa-calendar-alt"></i>
-        <p>
-          Flight
-          <!-- <span class="badge badge-info right">2</span> -->
-        </p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="pages/gallery.html" class="nav-link">
-        <i class="nav-icon far fa-image"></i>
-        <p>
-          Gallery
-        </p>
-      </a>
-    </li>
-  </ul>
-</nav>
-<!-- /.sidebar-menu -->

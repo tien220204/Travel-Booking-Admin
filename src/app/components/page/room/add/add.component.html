@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add New Room</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Room</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Add New Room</h3>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="addForm" (ngSubmit)="save()">
+                  <div class="form-group">
+                    <label for="hotelId">Hotel ID</label>
+                    <input type="number" class="form-control" id="hotelId" formControlName="hotelId" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="roomName">Room Name</label>
+                    <input type="text" class="form-control" id="roomName" formControlName="roomName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="roomDescription">Room Description</label>
+                    <textarea class="form-control" id="roomDescription" formControlName="roomDescription" required rows="3"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="roomPrice">Room Price</label>
+                    <input type="number" class="form-control" id="roomPrice" formControlName="roomPrice" required min="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="numOfSingleBed">Number of Single Beds</label>
+                    <input type="number" class="form-control" id="numOfSingleBed" formControlName="numOfSingleBed" required min="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="numOfDoubleBed">Number of Double Beds</label>
+                    <input type="number" class="form-control" id="numOfDoubleBed" formControlName="numOfDoubleBed" required min="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="isHide">Hide Room</label>
+                    <select class="form-control" id="isHide" formControlName="isHide">
+                      <option [ngValue]="false">No</option>
+                      <option [ngValue]="true">Yes</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

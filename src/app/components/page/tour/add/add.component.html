@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add New Tour</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Tour</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Add New Tour</h3>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="addForm" (ngSubmit)="save()">
+                  <div class="form-group">
+                    <label for="tourName">Tour Name</label>
+                    <input type="text" class="form-control" id="tourName" formControlName="tourName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="tourDescription">Tour Description</label>
+                    <textarea class="form-control" id="tourDescription" formControlName="tourDescription" required rows="3"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="departure">Departure</label>
+                    <input type="number" class="form-control" id="departure" formControlName="departure" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="arrival">Arrival</label>
+                    <input type="number" class="form-control" id="arrival" formControlName="arrival" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="tourPrice">Tour Price</label>
+                    <input type="number" class="form-control" id="tourPrice" formControlName="tourPrice" required min="0">
+                  </div>
+                  <div class="form-group">
+                    <label for="isHide">Hide Tour</label>
+                    <select class="form-control" id="isHide" formControlName="isHide">
+                      <option [ngValue]="false">No</option>
+                      <option [ngValue]="true">Yes</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
