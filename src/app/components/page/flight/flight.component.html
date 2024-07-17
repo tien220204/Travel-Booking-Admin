@@ -43,14 +43,18 @@
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                       <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
+                        <th>ID</th>
+                        <th>Departure Airport Id</th>
+                        <th>Arrival Airport Id </th>
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>is Hide</th>
                       </tr>
                       </thead>
                       <tbody>
+
                       <tr>
                         <td>Trident</td>
                         <td>Internet
@@ -60,44 +64,18 @@
                         <td> 4</td>
                         <td>X</td>
                       </tr>
-                      <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                          Explorer 5.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td>5</td>
-                        <td>C</td>
+                      <tr *ngFor="let flight of listFlight">
+                        <td>{{ flight.flightId }}</td>
+                        <td>{{ flight.departureAirportId }}</td>
+                        <td>{{ flight.arrivalAirportId }}</td> 
+                        <td>{{ flight.nameFlight }}</td> 
+                        <td>{{ flight.startDate }}</td> 
+                        <td>{{ flight.departureTime }}</td> 
+                        <td>{{ flight.arrivalTime }}</td> 
+                        <td>{{ flight.flightPrice }}</td> 
+                        <td>{{ flight.isHide }}</td> 
                       </tr>
-                     
-                      <tr>
-                        <td>Misc</td>
-                        <td>Lynx</td>
-                        <td>Text only</td>
-                        <td>-</td>
-                        <td>X</td>
-                      </tr>
-                      <tr>
-                        <td>Misc</td>
-                        <td>IE Mobile</td>
-                        <td>Windows Mobile 6</td>
-                        <td>-</td>
-                        <td>C</td>
-                      </tr>
-                      <tr>
-                        <td>Misc</td>
-                        <td>PSP browser</td>
-                        <td>PSP</td>
-                        <td>-</td>
-                        <td>C</td>
-                      </tr>
-                      <tr>
-                        <td>Other browsers</td>
-                        <td>All others</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>U</td>
-                      </tr>
+                      
                       </tbody>
                       <tfoot>
                       <tr>

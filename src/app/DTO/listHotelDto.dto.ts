@@ -1,8 +1,9 @@
-// import { hotelResDto } from "./hotelResDTO.dto"
+import { HotelDTO } from "./HotelDTO.dto";
 
-// export interface listHotelDto {
-//     result : hotelResDto[];
-//     totalPages : number;
-//     pageSize : number;
-//     totalItem : number;
-// }
+
+export interface listHotelDto {
+    result : HotelDTO[];
+    totalPages : number;
+    pageSize : number;
+    totalItem : number;
+}

@@ -9,6 +9,7 @@ import { AddRoomComponent } from './components/room/add/add.component';
 
 
 import { FlightComponent } from './components/page/flight/flight.component';
+<<<<<<< HEAD
 import { ReviewComponent } from './components/page/review/review.component';
 import { AirportComponent } from './components/page/airport/airport.component';
 import { AddAirportComponent } from './components/page/airport/add/add.component';
@@ -16,6 +17,9 @@ import { EditAirportComponent } from './components/page/airport/edit/edit.compon
 import { BeachComponent } from './components/page/beach/beach.component';
 import { AddBeachComponent } from './components/page/beach/add/add.component';
 import { EditBeachComponent } from './components/page/beach/edit/edit.component';
+=======
+import { HotelComponent } from './components/page/hotel/hotel.component';
+>>>>>>> b87ab0ae963b596fa7d70f60fe9969790da339f0
 
 export const routes: Routes = [
     // { path: '', component: LoginComponent },
@@ -38,6 +42,7 @@ export const routes: Routes = [
     { path: 'edit-beach', component: EditBeachComponent },
 
     { path: 'dashboard', component: DashboardComponent},
-    { path: 'flight', component: FlightComponent}
+    { path: 'flight', component: FlightComponent},
+    { path: 'hotel', component: HotelComponent}
     
 ];

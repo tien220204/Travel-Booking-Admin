@@ -1,0 +1,15 @@
+/* Style for the facilities list */
+.facilities-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .facilities-list li {
+    background: #f9f9f9; /* Light background for list items */
+    padding: 5px; /* Padding for list items */
+    margin: 2px 0; /* Margin between list items */
+    border: 1px solid #ddd; /* Light border around list items */
+    border-radius: 4px; /* Rounded corners for list items */
+  }
+  
