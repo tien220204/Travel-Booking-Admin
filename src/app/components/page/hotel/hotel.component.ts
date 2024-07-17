@@ -1,56 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-
-// import { hotelDto } from '../../../DTO/hotelDTO.DTO';
 import { CommonModule } from '@angular/common';
-
 import { HotelAPIService } from '../../../services/HotelApi.Service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { listHotelDto } from '../../../DTO/listHotelDto.dto';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
+import { ScrollerModule } from 'primeng/scroller';
+import { HotelDTO } from '../../../DTO/HotelDTO.dto';
+import { facilitiesDTO } from '../../../DTO/facilitiesDTO.dto';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-hotel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, ScrollerModule,DialogModule, ButtonModule, InputTextModule],
   templateUrl: './hotel.component.html',
-  styleUrl: './hotel.component.css'
+  styleUrls: ['./hotel.component.css'] // Changed 'styleUrl' to 'styleUrls'
 })
 export class HotelComponent implements OnInit {
-  page: number = 1;
-  pageSize: number = 8;
-  totalPages: number = 0;
-  totalItems: number = 0;
+ 
   
-  listhotel : listHotelDto | null = null;
-  
+  listhotel: HotelDTO[] = [];
+  facilities: string[] = []; // Initialized facilities as an empty array
+
   constructor(
     private hotelApiService: HotelAPIService,
     private route: ActivatedRoute,
-    private router: Router,
-  ){
+    private router: Router
+  ) {}
 
-  }
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.page = params['page'] ? + params['page'] : 1;
+    this.facilities = [];
+    
+      
       this.loadHotels();
-      console.log("page",this.page);
-    });
-
+      
     
   }
+  visible: boolean = false;
+
+    showDialog() {
+        this.visible = true;
+      }
 
   loadHotels() {
-    this.hotelApiService.getPaginedHotel(this.page).then(
+    this.hotelApiService.getAll().then(
       (res) => {
-        // console.log(res);
-        this.listhotel = res as listHotelDto;
-        console.log(this.listhotel);
-        this.totalPages = this.listhotel.totalPages;
-        this.totalItems = this.listhotel.totalItem;
-      }, 
+        this.listhotel = res as HotelDTO[];
+        
+        // this.listhotel.forEach((hotel: HotelDTO) => {
+          
+        //   hotel.facilities.forEach((faci: facilitiesDTO) => {
+        //     this.facilities.push(faci.facilityName);
+        //   })
+        // });
+        this.listhotel.forEach((hotel:HotelDTO) => {
+          console.log(hotel);
+          hotel.facilities.forEach((facility:facilitiesDTO) => {
+            this.facilities.push(facility.facilityName);
+          })
+        })
+      },
       err => {
         console.log(err);
       }
-    )
+    );
   }
 }
+

@@ -12,9 +12,9 @@ import { enviroment } from '../Enviroments/Enviroment';
 export class HotelAPIService {
   httpClient = inject(HttpClient);
   baseUrl = enviroment.baseApiUrl + 'Hotel';
-  async getPaginedHotel(pageNumber : number) {
+  async getAll() {
     return lastValueFrom(
-      this.httpClient.get(this.baseUrl + '/HotelsPaginated?PageNumber='+pageNumber)
+      this.httpClient.get(this.baseUrl + '/findAll')
     );
   }
 }

@@ -13,3 +13,16 @@
     border-radius: 4px; /* Rounded corners for list items */
   }
   
+  .table img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  :host ::ng-deep {
+    .p-scroller-viewport {
+        flex: none;
+    }
+}
+  
