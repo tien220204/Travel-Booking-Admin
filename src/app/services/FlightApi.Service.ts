@@ -4,6 +4,7 @@ import { inject, Injectable, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
 import { enviroment } from '../Enviroments/Enviroment';
+import { FlightDto } from '../DTO/FlightDTO.DTO';
 
 
 @Injectable({
@@ -14,7 +15,17 @@ export class FlightAPIService {
   baseUrl = enviroment.baseApiUrl + 'Flight';
   async getAll() {
     return lastValueFrom(
-      this.httpClient.get(this.baseUrl + '/getAllFlight')
+      this.httpClient.get(this.baseUrl + '/findAll')
+    );
+  }
+  async update(flight:FlightDto){
+    return lastValueFrom(
+      this.httpClient.put(this.baseUrl + '/UpdateFlight',flight)
+    );
+  }
+  async delete(flightId: number) {
+    return lastValueFrom(
+      this.httpClient.delete(this.baseUrl + '/UpdateFlight/'+flightId)
     );
   }
   // async login(account: AccountLoginDTO) {

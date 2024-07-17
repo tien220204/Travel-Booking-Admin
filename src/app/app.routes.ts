@@ -17,6 +17,7 @@ import { EditAirportComponent } from './components/page/airport/edit/edit.compon
 
 
 import { HotelComponent } from './components/page/hotel/hotel.component';
+<<<<<<< HEAD
 import { ReviewComponent } from './components/page/review/review.component';
 import { AddReviewComponent } from './components/page/review/add/add.component';
 import { EditReviewComponent } from './components/page/review/edit/edit.component';
@@ -42,6 +43,9 @@ import { EditTourPersonQuantityComponent } from './components/page/tour-person-q
 import { UserComponent } from './components/page/user/user.component';
 import { AddUserComponent } from './components/page/user/add/add.component';
 import { EditUserComponent } from './components/page/user/edit/edit.component';
+
+
+import { BeachComponent } from './components/page/beach/beach.component';
 
 
 export const routes: Routes = [
@@ -103,6 +107,7 @@ export const routes: Routes = [
     
     { path: 'dashboard', component: DashboardComponent},
     { path: 'flight', component: FlightComponent},
-    { path: 'hotel', component: HotelComponent}
+    { path: 'hotel', component: HotelComponent},
+    { path: 'beach', component: BeachComponent}
     
 ];
