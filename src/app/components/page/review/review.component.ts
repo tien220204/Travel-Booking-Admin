@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewService } from '../../services/review.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+import { reviewDto } from '../../../DTO/reviewDto.dto copy';
+import { ReviewService } from '../../../services/review.service';
 
 @Component({
   selector: 'app-review',
@@ -12,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   host: { 'collision-id': 'ReviewComponent' }
 })
 export class ReviewComponent implements OnInit {
-  reviews: any[] = [];
+  reviews: reviewDto[];
 
   constructor(
     private reviewService: ReviewService,

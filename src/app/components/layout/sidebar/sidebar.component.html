@@ -144,3 +144,51 @@
   </div>
   <!-- /.sidebar -->
 </aside>
+
+<!-- SidebarSearch Form -->
+<div class="form-inline">
+  <div class="input-group" data-widget="sidebar-search">
+    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+    <div class="input-group-append">
+      <button class="btn btn-sidebar">
+        <i class="fas fa-search fa-fw"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- /.sidebar-menu -->
+<nav class="mt-2">
+  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <!-- Add icons to the links using the .nav-icon class
+         with font-awesome or any other icon font library -->
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="dashboard">
+        <i class="nav-icon far fa-calendar-alt"></i>
+        <p>
+          Dashboard
+          <!-- <span class="badge badge-info right">2</span> -->
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/flight" class="nav-link">
+        <i class="nav-icon far fa-calendar-alt"></i>
+        <p>
+          Flight
+          <!-- <span class="badge badge-info right">2</span> -->
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="pages/gallery.html" class="nav-link">
+        <i class="nav-icon far fa-image"></i>
+        <p>
+          Gallery
+        </p>
+      </a>
+    </li>
+  </ul>
+</nav>
+<!-- /.sidebar-menu -->

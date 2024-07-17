@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <!-- Phần đầu giữ nguyên -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <!-- Giữ nguyên phần này -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Airport Data</h3>
+                <a [routerLink]="['/add-airport']" class="btn btn-primary float-right">Add Airport</a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Airport ID</th>
+                      <th>Airport Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (airport of airports; track airport) {
+                      <tr>
+                        <td>{{ airport.airportId }}</td>
+                        <td>{{ airport.airportName }}</td>
+                      
+                        <td>
+                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(airport.airportId)">Delete</button> | 
+                          <a [routerLink]="['/edit-airport', {id: airport.airportId}]" class="btn btn-sm btn-success">Edit</a>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                  <!-- <tfoot>
+                    <tr>
+                      <th>Airport ID</th>
+                      <th>Airport Name</th>
+                      <th>Is Hidden</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot> -->
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->
