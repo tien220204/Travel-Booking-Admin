@@ -25,38 +25,46 @@
                 <h3 class="card-title">Edit Review Information</h3>
               </div>
               <div class="card-body">
-                @if(editForm != null) {
-                  <form [formGroup]="editForm" (ngSubmit)="save()">
-                    <div class="form-group">
-                      <label for="reviewStar">Star Rating</label>
-                      <input type="text" class="form-control" id="reviewStar" formControlName="reviewStar" required>
+                <form [formGroup]="editForm" (ngSubmit)="save()">
+                  <div class="form-group">
+                    <label for="reviewStar">Star Rating</label>
+                    <input type="number" id="reviewStar" formControlName="reviewStar" class="form-control" min="1" max="5">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="reviewText">Review Text</label>
+                    <textarea id="reviewText" formControlName="reviewText" class="form-control" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="userId">User ID</label>
+                    <input type="text" id="userId" formControlName="userId" class="form-control">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hotelId">Hotel ID</label>
+                    <input type="text" id="hotelId" formControlName="hotelId" class="form-control">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="restaurantId">Restaurant ID</label>
+                    <input type="text" id="restaurantId" formControlName="restaurantId" class="form-control">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Is Hidden</label>
+                    <div class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" id="isHideNo" formControlName="isHide" [value]="false">
+                      <label for="isHideNo" class="custom-control-label">No</label>
                     </div>
-                    <div class="form-group">
-                      <label for="reviewText">Review Text</label>
-                      <textarea class="form-control" id="reviewText" formControlName="reviewText" rows="3" required></textarea>
+                    <div class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" id="isHideYes" formControlName="isHide" [value]="true">
+                      <label for="isHideYes" class="custom-control-label">Yes</label>
                     </div>
-                    <div class="form-group">
-                      <label for="userFullName">User Full Name</label>
-                      <input type="text" class="form-control" id="userFullName" formControlName="userFullName" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="hotelId">Hotel ID</label>
-                      <input type="number" class="form-control" id="hotelId" formControlName="hotelId">
-                    </div>
-                    <div class="form-group">
-                      <label for="restaurantId">Restaurant ID</label>
-                      <input type="number" class="form-control" id="restaurantId" formControlName="restaurantId">
-                    </div>
-                    <div class="form-group">
-                      <label for="isHide">Is Hidden</label>
-                      <select class="form-control" id="isHide" formControlName="isHide">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                  </form>
-                }
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
               </div>
             </div>
           </div>

@@ -25,22 +25,23 @@ export class EditReviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.editForm = this.formBuilder.group({
+      reviewId: [''],
+      reviewStar: ['', Validators.required],
+      reviewText: ['', Validators.required],
+      userId: ['', Validators.required],
+      hotelId: [''],
+      restaurantId: [''],
+      isHide: [false]
+    });
+  
     this.activatedRoute.paramMap.subscribe(p => {
       let id = p.get('id');
       if (id) {
         this.reviewApiService.findById(id).then(
           res => {
             let review = res as ReviewDto;
-            this.editForm = this.formBuilder.group({
-              reviewId: [review.reviewId],
-              reviewStar: [review.reviewStar, Validators.required],
-              reviewText: [review.reviewText, Validators.required],
-              userId: [review.userId, Validators.required],
-              userFullName: [review.userFullName, Validators.required],
-              hotelId: [review.hotelId],
-              restaurantId: [review.restaurantId],
-              isHide: [review.isHide]
-            });
+            this.editForm.patchValue(review);
           },
           err => {
             console.error('Error fetching review:', err);
@@ -58,7 +59,6 @@ export class EditReviewComponent implements OnInit {
       formData.append('reviewStar', review.reviewStar);
       formData.append('reviewText', review.reviewText);
       formData.append('userId', review.userId.toString());
-      formData.append('userFullName', review.userFullName);
       formData.append('hotelId', review.hotelId.toString());
       formData.append('restaurantId', review.restaurantId.toString());
       formData.append('isHide', review.isHide);

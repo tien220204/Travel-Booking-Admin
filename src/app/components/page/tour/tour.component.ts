@@ -34,7 +34,7 @@ export class TourComponent implements OnInit {
     );
   }
 
-  delete(id: number) {
+  delete(id: string) {
     const result = confirm('Are you sure you want to delete this tour?');
     if (result) {
       this.tourApiService.delete(id).then(

@@ -35,7 +35,7 @@
                       <th>Review ID</th>
                       <th>Star Rating</th>
                       <th>Review Text</th>
-                      <th>User</th>
+                      <th>User ID</th>
                       <th>Hotel ID</th>
                       <th>Restaurant ID</th>
                       <th>Is Hidden</th>
@@ -48,13 +48,13 @@
                         <td>{{ review.reviewId }}</td>
                         <td>{{ review.reviewStar }}</td>
                         <td>{{ review.reviewText }}</td>
-                        <td>{{ review.userFullName }} (ID: {{ review.userId }})</td>
+                        <td>{{ review.userId }} </td>
                         <td>{{ review.hotelId }}</td>
                         <td>{{ review.restaurantId }}</td>
                         <td>{{ review.isHide }}</td>
                         <td>
                           <button type="button" class="btn btn-sm btn-danger" (click)="delete(review.reviewId.toString())">Delete</button> | 
-                          <a [routerLink]="['/edit-review', {id: review.reviewId}]" class="btn btn-sm btn-success">Edit</a>
+                          <a [routerLink]="['/edit-review',{id:review.reviewId}  ]" class="btn btn-sm btn-success">Edit</a>
                         </td>
                       </tr>
                     }

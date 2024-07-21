@@ -24,21 +24,23 @@ export class EditTourComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.editForm = this.formBuilder.group({
+      tourId: [''],
+      tourName: ['', Validators.required],
+      tourDescription: ['', Validators.required],
+      departure: ['', Validators.required],
+      arrival: ['', Validators.required],
+      tourPrice: ['', Validators.required],
+      isHide: [false]
+    });
+
     this.activatedRoute.paramMap.subscribe(p => {
       let id = p.get('id');
       if (id) {
         this.tourApiService.findById(id).then(
           res => {
             let tour = res as TourDto;
-            this.editForm = this.formBuilder.group({
-              tourId: [tour.tourId],
-              tourName: [tour.tourName, Validators.required],
-              tourDescription: [tour.tourDescription, Validators.required],
-              departure: [tour.departure, Validators.required],
-              arrival: [tour.arrival, Validators.required],
-              tourPrice: [tour.tourPrice, Validators.required],
-              isHide: [tour.isHide]
-            });
+            this.editForm.patchValue(tour);
           },
           err => {
             console.error('Error fetching tour:', err);

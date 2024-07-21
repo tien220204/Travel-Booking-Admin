@@ -25,42 +25,51 @@
                 <h3 class="card-title">Edit Room Information</h3>
               </div>
               <div class="card-body">
-                @if(editForm != null) {
-                  <form [formGroup]="editForm" (ngSubmit)="save()">
-                    <div class="form-group">
-                      <label for="roomName">Room Name</label>
-                      <input type="text" class="form-control" id="roomName" formControlName="roomName" required>
+                <form [formGroup]="editForm" (ngSubmit)="save()">
+                  <div class="form-group">
+                    <label for="hotelId">Hotel ID</label>
+                    <input type="number" id="hotelId" class="form-control" formControlName="hotelId">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="roomName">Room Name</label>
+                    <input type="text" id="roomName" class="form-control" formControlName="roomName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="roomDescription">Room Description</label>
+                    <textarea id="roomDescription" class="form-control" formControlName="roomDescription"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="roomPrice">Room Price</label>
+                    <input type="number" id="roomPrice" class="form-control" formControlName="roomPrice">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="numOfSingleBed">Number of Single Beds</label>
+                    <input type="number" id="numOfSingleBed" class="form-control" formControlName="numOfSingleBed">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="numOfDoubleBed">Number of Double Beds</label>
+                    <input type="number" id="numOfDoubleBed" class="form-control" formControlName="numOfDoubleBed">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Is Hidden</label>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="notHidden" formControlName="isHide" [value]="false" class="custom-control-input">
+                      <label class="custom-control-label" for="notHidden">No</label>
                     </div>
-                    <div class="form-group">
-                      <label for="roomDescription">Room Description</label>
-                      <textarea class="form-control" id="roomDescription" formControlName="roomDescription" rows="3" required></textarea>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="hidden" formControlName="isHide" [value]="true" class="custom-control-input">
+                      <label class="custom-control-label" for="hidden">Yes</label>
                     </div>
-                    <div class="form-group">
-                      <label for="roomPrice">Room Price</label>
-                      <input type="number" class="form-control" id="roomPrice" formControlName="roomPrice" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="hotelId">Hotel ID</label>
-                      <input type="number" class="form-control" id="hotelId" formControlName="hotelId" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="numOfSingleBed">Number of Single Beds</label>
-                      <input type="number" class="form-control" id="numOfSingleBed" formControlName="numOfSingleBed" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="numOfDoubleBed">Number of Double Beds</label>
-                      <input type="number" class="form-control" id="numOfDoubleBed" formControlName="numOfDoubleBed" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="isHide">Is Hidden</label>
-                      <select class="form-control" id="isHide" formControlName="isHide">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                  </form>
-                }
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
               </div>
             </div>
           </div>
