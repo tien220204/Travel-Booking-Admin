@@ -18,6 +18,11 @@ export class FlightAPIService {
       this.httpClient.get(this.baseUrl + '/findAll')
     );
   }
+  async add(flight:FlightDto){
+    return lastValueFrom(
+      this.httpClient.post(this.baseUrl + '/AddFlight',flight)
+    );
+  }
   async update(flight:FlightDto){
     return lastValueFrom(
       this.httpClient.put(this.baseUrl + '/UpdateFlight',flight)
@@ -25,7 +30,7 @@ export class FlightAPIService {
   }
   async delete(flightId: number) {
     return lastValueFrom(
-      this.httpClient.delete(this.baseUrl + '/UpdateFlight/'+flightId)
+      this.httpClient.post(this.baseUrl + '/delete/'+flightId,{})
     );
   }
   // async login(account: AccountLoginDTO) {

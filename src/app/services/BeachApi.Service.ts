@@ -23,6 +23,16 @@ export class BeachAPIService {
         this.httpClient.post(this.baseUrl + '/addBeach', beach)
       );
   }
+  async delete(beachId: number) {
+    return lastValueFrom(
+      this.httpClient.post(this.baseUrl + '/delete/'+beachId ,{})
+    );
   }
+  async update(beach:BeachDTO){
+    return lastValueFrom(
+      this.httpClient.put(this.baseUrl + '/UpdateBeach',beach)
+    );
+  }
+}
   
 

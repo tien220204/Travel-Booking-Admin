@@ -1,8 +1,8 @@
 import { facilitiesDTO } from "./facilitiesDTO.dto"
 
 export interface BeachDTO {
-    id: string;
-    name: string;
-    location: string;
+    beachId: number;
+    beachName: string;
+    beachLocation: string;
     locationId: number;
 }

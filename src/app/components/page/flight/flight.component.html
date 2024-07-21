@@ -1,166 +1,239 @@
+<div class="wrapper">
+  <!-- Navbar -->
 
-    <div class="wrapper">
-      <!-- Navbar -->
-      
-      <!-- /.navbar -->
-    
-      <!-- Main Sidebar Container -->
-     
-    
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h1>Flights Management</h1>
-              </div>
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a  routerLink="/dashboard">Home</a></li>
-                  <li class="breadcrumb-item active">Flights Management</li>
-                </ol>
-              </div>
-            </div>
+  <!-- /.navbar -->
 
-            <div class="row mb-2 right-align">
-              <p-button (onClick)="showDialog()" label="Add"></p-button>
-            </div>
-          <p-dialog header="Add Beach" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-              <span class="p-text-secondary block mb-5">Add Flight Information</span>
-              <div class="flex align-items-center gap-3 mb-3">
-                  <label for="id" class="font-semibold w-6rem">ID</label>
-                  <input pInputText id="username" class="flex-auto" autocomplete="off" />
-              </div>
-              <div class="flex align-items-center gap-3 mb-5">
-                  <label for="name" class="font-semibold w-6rem">Name</label>
-                  <input pInputText id="email" class="flex-auto" autocomplete="off" />
-              </div>
-              <div class="flex align-items-center gap-3 mb-5">
-                  <label for="name" class="font-semibold w-6rem">Location</label>
-                  <input pInputText id="email" class="flex-auto" autocomplete="off" />
-              </div>
-              <div class="flex justify-content-end gap-2">
-                  <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
-                  <p-button label="Save" (onClick)="visible = false" />
-              </div>
-          </p-dialog>
-          </div><!-- /.container-fluid -->
-        </section>
-    
-        <!-- Main content -->
-        <section class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12">
-               
-                <!-- /.card -->
-    
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">DataTable with default features</h3>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                      <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Departure Airport Id</th>
-                        <th>Arrival Airport Id </th>
-                        <th>Name</th>
-                        <th>Start Date</th>
-                        <th>Departure Time</th>
-                        <th>Arrival Time</th>
-                        <th>is Hide</th>
-                      </tr>
-                      </thead>
-                      <tbody>
+  <!-- Main Sidebar Container -->
 
-                      <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                          Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                        <td>X</td>
-                      </tr>
-                      <tr *ngFor="let flight of listFlight">
-                        <td>{{ flight.flightId }}</td>
-                        <td>{{ flight.departureAirportId }}</td>
-                        <td>{{ flight.arrivalAirportId }}</td> 
-                        <td>{{ flight.nameFlight }}</td> 
-                        <td>{{ flight.startDate }}</td> 
-                        <td>{{ flight.departureTime }}</td> 
-                        <td>{{ flight.arrivalTime }}</td> 
-                        <td>{{ flight.flightPrice }}</td> 
-                        <td>{{ flight.isHide }}</td> 
-                      </tr>
-                      
-                      </tbody>
-                      <tfoot>
-                      <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                      </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Flights Management</h1>
           </div>
-          <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-          <b>Version</b> 3.2.0
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+              <li class="breadcrumb-item active">Flights Management</li>
+            </ol>
+          </div>
         </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-      </footer>
-    
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-    
-    <!-- jQuery -->
-    <script src="../../../../assets/plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap 4 -->
-    <script src="../../../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="../../../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="../../../../assets/plugins/jszip/jszip.min.js"></script>
-    <script src="../../../../assets/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="../../../../assets/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="../../../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="../../../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../../../assets/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../../../assets/dist/js/demo.js"></script>
-    <!-- Page specific script -->
-    
- 
+        <div class="row mb-2 right-align">
+          <p-button (onClick)="showDialog()" label="Add"></p-button>
+        </div>
+        <p-dialog header="Add Flight" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem', height: '50rem' }">
+          <form [formGroup]="flightForm" (ngSubmit)="addFlight()">
+            <span class="p-text-secondary block mb-5">Add Flight Information</span>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="id" class="font-semibold w-6rem">ID</label>
+              <input pInputText id="id" formControlName="flightId" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-2 mb-2">
+              <label for="departure" class="font-semibold w-6rem">Departure</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown [options]="listAirports" formControlName="departureAirportId" placeholder="Select an Airport" [editable]="false" optionLabel="airportName" optionValue="airportId" [filter]="true"
+                filterBy="airportName"></p-dropdown>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-2 mb-2">
+              <label for="arrival" class="font-semibold w-6rem">Arrival</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown [options]="listAirports" formControlName="arrivalAirportId" placeholder="Select an Airport" [editable]="false" optionLabel="airportName" optionValue="airportId"  [filter]="true"
+                filterBy="airportName"></p-dropdown>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="startAt" class="font-semibold w-6rem">Start At</label>
+              <div class="card flex justify-content-center">
+                <p-calendar formControlName="startDate" ></p-calendar>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="from" class="font-semibold w-6rem">From</label>
+              <p-calendar formControlName="departureTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay"  >
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="to" class="font-semibold w-6rem">To</label>
+              <p-calendar formControlName="arrivalTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay">
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="price" class="font-semibold w-6rem">Price</label>
+              <input pInputText id="price" formControlName="flightPrice" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-content-end gap-2">
+              <p-button label="Cancel" severity="secondary" (onClick)="visible = false"></p-button>
+              <p-button label="Save" type="submit"></p-button>
+            </div>
+          </form>
+        </p-dialog>
+        
+
+        <!-- //update dialog -->
+        
+        <!-- <p-dialog header="Update Flight" [modal]="true" [(visible)]="visibleUpdate" [style]="{ width: '50rem', height: '50rem' }">
+          <form [formGroup]="updateFlightForm" (ngSubmit)="updateFlight()">
+            <span class="p-text-secondary block mb-5">Update Flight Information</span>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="id" class="font-semibold w-6rem">ID</label>
+              <input pInputText id="id" formControlName="flightId" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-2 mb-2">
+              <label for="departure" class="font-semibold w-6rem">Departure</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown [options]="listAirports" formControlName="departureAirportId" placeholder="Select an Airport" [editable]="false" optionLabel="airportName" optionValue="airportId" [filter]="true"
+                filterBy="airportName"></p-dropdown>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-2 mb-2">
+              <label for="arrival" class="font-semibold w-6rem">Arrival</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown [options]="listAirports" formControlName="arrivalAirportId" placeholder="Select an Airport" [editable]="false" optionLabel="airportName" optionValue="airportId"  [filter]="true"
+                filterBy="airportName"></p-dropdown>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="startAt" class="font-semibold w-6rem">Start At</label>
+              <div class="card flex justify-content-center">
+                <p-calendar formControlName="startDate" ></p-calendar>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="from" class="font-semibold w-6rem">From</label>
+              <p-calendar formControlName="departureTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay"  >
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="to" class="font-semibold w-6rem">To</label>
+              <p-calendar formControlName="arrivalTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay">
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="price" class="font-semibold w-6rem">Price</label>
+              <input pInputText id="price" formControlName="flightPrice" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-content-end gap-2">
+              <p-button label="Cancel" severity="secondary" (onClick)="visible = false"></p-button>
+              <p-button label="Save" type="submit"></p-button>
+            </div>
+          </form>
+        </p-dialog> -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Departure Airport Id</th>
+                      <th>Arrival Airport Id</th>
+                      <th>Name</th>
+                      <th>Start Date</th>
+                      <th>Departure Time</th>
+                      <th>Arrival Time</th>
+                      <th>Price</th>
+                      <th>is Hide</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let flight of listFlight">
+                      <td>{{ flight.flightId }}</td>
+                      <td>{{ flight.departureAirportId }}</td>
+                      <td>{{ flight.arrivalAirportId }}</td>
+                      <td>{{ flight.nameFlight }}</td>
+                      <td>{{ flight.startDate }}</td>
+                      <td>{{ flight.departureTime }}</td>
+                      <td>{{ flight.arrivalTime }}</td>
+                      <td>{{ flight.flightPrice }}</td>
+                      <td>{{ flight.isHide }}</td>
+                      <td>
+                        <button (click)="updateFlight(flight)" class="btn btn-primary">Update</button>
+                        <button (click)="deleteFlight(flight.flightId)" class="btn btn-primary">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../../../assets/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="../../../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../../../assets/plugins/jszip/jszip.min.js"></script>
+<script src="../../../../assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../../../assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../../assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../../assets/dist/js/demo.js"></script>

@@ -22,6 +22,87 @@
             </ol>
           </div>
         </div>
+        <div class="row mb-2 right-align">
+          <p-button (onClick)="openAddDialog()" label="Add"></p-button>
+        </div>
+        <p-dialog header="Add/Edit Hotel" [modal]="true" [(visible)]="visible"
+          [style]="{ width: '50rem', height: '50rem' }">
+          <form [formGroup]="hotelForm" (ngSubmit)="saveHotel()">
+            <span class="p-text-secondary block mb-5">{{ isEditMode ? 'Edit Hotel Information' : 'Add Hotel Information'
+              }}</span>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="hotelId" class="font-semibold w-6rem">ID</label>
+              <input pInputText id="hotelId" formControlName="hotelId" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="hotelName" class="font-semibold w-6rem">Name</label>
+              <input pInputText id="hotelName" formControlName="hotelName" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="hotelDescription" class="font-semibold w-6rem">Description</label>
+              <input pInputText id="hotelDescription" formControlName="hotelDescription" class="flex-auto"
+                autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="hotelMinPrice" class="font-semibold w-6rem">Price</label>
+              <input pInputText id="hotelMinPrice" formControlName="hotelPriceRange" class="flex-auto"
+                autocomplete="off" />
+
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="detailLocationNumber" class="font-semibold w-6rem">Location</label>
+              <input pInputText id="detailLocationNumber" formControlName="detailLocationNumber" class="flex-auto"
+                autocomplete="off" />
+            </div>
+            <div class="flex justify-content-end gap-2">
+              <p-button label="Cancel" severity="secondary" (onClick)="visible = false"></p-button>
+              <p-button label="Save" type="submit"></p-button>
+            </div>
+          </form>
+        </p-dialog>
+
+        <!-- update dialog -->
+        <!-- <p-dialog header="Update Hotel" [modal]="true" [(visible)]="visibleUpdate" [style]="{ width: '50rem', height: '50rem' }">
+          <form [formGroup]="updateHotelForm" (ngSubmit)="updateHotel()">
+            <span class="p-text-secondary block mb-5">Update Hotel Information</span>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="id" class="font-semibold w-6rem">ID</label>
+              <input pInputText id="id" formControlName="flightId" class="flex-auto" autocomplete="off" />
+            </div>
+            
+            
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="startAt" class="font-semibold w-6rem">Start At</label>
+              <div class="card flex justify-content-center">
+                <p-calendar formControlName="startDate" ></p-calendar>
+              </div>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="from" class="font-semibold w-6rem">From</label>
+              <p-calendar formControlName="departureTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay"  >
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="to" class="font-semibold w-6rem">To</label>
+              <p-calendar formControlName="arrivalTime" [iconDisplay]="'input'" [showIcon]="true" [timeOnly]="true" inputId="templatedisplay">
+                <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                  <i class="pi pi-clock pointer-events-none" (click)="clickCallBack($event)"></i>
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex align-items-center gap-3 mb-3">
+              <label for="price" class="font-semibold w-6rem">Price</label>
+              <input pInputText id="price" formControlName="flightPrice" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-content-end gap-2">
+              <p-button label="Cancel" severity="secondary" (onClick)="visible = false"></p-button>
+              <p-button label="Save" type="submit"></p-button>
+            </div>
+          </form>
+        </p-dialog> -->
       </div><!-- /.container-fluid -->
     </section>
 
@@ -63,10 +144,11 @@
                       <td>{{item.hotelLocation}}</td>
 
                       <td>{{item.isHide}}</td>
+
                       <!-- list -->
                       <td>
                         <ul class="facilities-list">
-                           
+
                           <p-scroller [items]="facilities" [itemSize]="20" scrollHeight="200px"
                             styleClass="border-1 surface-border" [style]="{'width': '200px', 'height': '200px'}">
                             <ng-template pTemplate="item" let-item let-options="options">
@@ -77,11 +159,19 @@
                             </ng-template>
                           </p-scroller>
 
-                          
+
                         </ul>
                       </td>
                       <td>
                         <img src="{{item.photoUrl}}" width="250" height="200">
+                      </td>
+                      <td>
+                        <button (click)="openEditDialog(item)" class="btn btn-success btn-sm mr-1" style="width: 100;">
+                          <i class="fa fa-edit"></i> Update
+                        </button>
+                        <button (click)="deleteHotel(item.hotelId)" class="btn btn-danger btn-sm" style="width: 100;">
+                          <i class="fa fa-trash"></i> Delete
+                        </button>
                       </td>
                     </tr>
 

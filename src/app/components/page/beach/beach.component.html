@@ -25,26 +25,30 @@
 
                 <div class="row mb-2 right-align">
                     <p-button (onClick)="showDialog()" label="Add"></p-button>
-                  </div>
+                </div>
                 <p-dialog header="Add Beach" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
                     <span class="p-text-secondary block mb-5">Add Beach Information</span>
-                    <div class="flex align-items-center gap-3 mb-3">
-                        <label for="id" class="font-semibold w-6rem">ID</label>
-                        <input pInputText id="username" class="flex-auto" autocomplete="off" />
-                    </div>
-                    <div class="flex align-items-center gap-3 mb-5">
-                        <label for="name" class="font-semibold w-6rem">Name</label>
-                        <input pInputText id="email" class="flex-auto" autocomplete="off" />
-                    </div>
-                    <div class="flex align-items-center gap-3 mb-5">
-                        <label for="name" class="font-semibold w-6rem">Location</label>
-                        <input pInputText id="email" class="flex-auto" autocomplete="off" />
-                    </div>
-                    <div class="flex justify-content-end gap-2">
-                        <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
-                        <p-button label="Save" (onClick)="visible = false" />
-                    </div>
+                    <form [formGroup]="beachForm" (ngSubmit)="saveBeach()">
+                        <div class="flex align-items-center gap-3 mb-3">
+                            <label for="id" class="font-semibold w-6rem">ID</label>
+                            <input pInputText id="id" formControlName="id" class="flex-auto" autocomplete="off" />
+                        </div>
+                        <div class="flex align-items-center gap-3 mb-5">
+                            <label for="name" class="font-semibold w-6rem">Name</label>
+                            <input pInputText id="name" formControlName="name" class="flex-auto" autocomplete="off" />
+                        </div>
+                        <div class="flex align-items-center gap-3 mb-5">
+                            <label for="location" class="font-semibold w-6rem">Location</label>
+                            <input pInputText id="location" formControlName="location" class="flex-auto" autocomplete="off" />
+                        </div>
+                        <div class="flex justify-content-end gap-2">
+                            <p-button label="Cancel" severity="secondary" (onClick)="cancelDialog()"  />
+                            <p-button label="Save" type="submit" />
+                        </div>
+                    </form>
                 </p-dialog>
+                
+                
             </div><!-- /.container-fluid -->
         </section>
 
@@ -72,24 +76,25 @@
                                     </thead>
                                     <tbody>
 
-                                        <tr>
+                                        
                                             @for (beach of listBeach; track $index) {
                                         <tr>
-                                            <td>{{beach.id}}</td>
-                                            <td>{{beach.name}}</td>
-                                            <td>{{beach.location}}</td>
+                                            <td>{{beach.beachId}}</td>
+                                            <td>{{beach.beachName}}</td>
+                                            <td>{{beach.beachLocation}}</td>
+                                            <td>
+                                                <button (click)="openEditDialog(beach)" class="btn btn-success btn-sm mr-1" style="width: 100;">
+                                                  <i class="fa fa-edit"></i> Update
+                                                </button>
+                                                <button (click)="deleteBeach(beach.beachId)" class="btn btn-danger btn-sm" style="width: 100;">
+                                                  <i class="fa fa-trash"></i> Delete
+                                                </button>
+                                              </td>
                                         </tr>
                                         }
 
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-
-                                        </tr>
-                                    </tfoot>
+                                    
                                 </table>
                             </div>
                             <!-- /.card-body -->

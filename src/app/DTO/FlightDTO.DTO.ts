@@ -4,8 +4,8 @@ export interface FlightDto {
     arrivalAirportId : number
     nameFlight : string
     startDate : string
-    departureTime: number
-    arrivalTime : number
+    departureTime: string
+    arrivalTime :string
     flightPrice: number
     isHide: boolean
 }

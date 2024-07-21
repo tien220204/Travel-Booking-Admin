@@ -1,5 +1,5 @@
 import {  Routes } from '@angular/router';
-import { RegisterComponent } from './components/page/register/register.component';
+
 import { LoginComponent } from './components/page/login/login.component';
 import { DashboardComponent } from './components/page/dashboard/dashboard.component';
 
@@ -17,7 +17,7 @@ import { EditAirportComponent } from './components/page/airport/edit/edit.compon
 
 
 import { HotelComponent } from './components/page/hotel/hotel.component';
-<<<<<<< HEAD
+
 import { ReviewComponent } from './components/page/review/review.component';
 import { AddReviewComponent } from './components/page/review/add/add.component';
 import { EditReviewComponent } from './components/page/review/edit/edit.component';
@@ -46,6 +46,7 @@ import { EditUserComponent } from './components/page/user/edit/edit.component';
 
 
 import { BeachComponent } from './components/page/beach/beach.component';
+import { PhotoComponent } from './components/page/photo/photo.component';
 
 
 export const routes: Routes = [
@@ -108,6 +109,8 @@ export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent},
     { path: 'flight', component: FlightComponent},
     { path: 'hotel', component: HotelComponent},
-    { path: 'beach', component: BeachComponent}
+    { path: 'beach', component: BeachComponent},
     
+    //photo route
+    {path: 'photo', component:PhotoComponent},
 ];

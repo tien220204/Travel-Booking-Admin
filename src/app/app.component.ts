@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { MessageService } from 'primeng/api';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
     HttpClientModule
 
   ],
+  providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

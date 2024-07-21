@@ -1,0 +1,17 @@
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Khoảng cách giữa các field */
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem; /* Khoảng cách giữa label và input */
+  }
+  .right-align {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
