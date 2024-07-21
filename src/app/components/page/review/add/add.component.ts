@@ -27,7 +27,6 @@ export class AddReviewComponent implements OnInit {
       reviewStar: ['', Validators.required],
       reviewText: ['', Validators.required],
       userId: ['', Validators.required],
-      userFullName: ['', Validators.required],
       hotelId: [''],
       restaurantId: [''],
       isHide: ['false']

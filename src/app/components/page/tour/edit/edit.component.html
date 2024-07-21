@@ -1,67 +1,85 @@
-<div class="wrapper">
-  <div class="content-wrapper">
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Edit Tour</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Edit Tour</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Tour</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Edit Tour</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Edit Tour</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Edit Tour Information</h3>
-              </div>
-              <div class="card-body">
-                @if(editForm != null) {
-                  <form [formGroup]="editForm" (ngSubmit)="save()">
-                    <div class="form-group">
-                      <label for="tourName">Tour Name</label>
-                      <input type="text" class="form-control" id="tourName" formControlName="tourName" required>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Edit Tour Information</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form [formGroup]="editForm" (ngSubmit)="save()">
+                                        <div class="form-group">
+                                            <label for="tourName">Tour Name</label>
+                                            <input type="text" id="tourName" formControlName="tourName" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="tourDescription">Tour Description</label>
+                                            <textarea id="tourDescription" formControlName="tourDescription" class="form-control" rows="3" required></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="departure">Departure</label>
+                                            <input type="date" id="departure" formControlName="departure" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="arrival">Arrival</label>
+                                            <input type="date" id="arrival" formControlName="arrival" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="tourPrice">Tour Price</label>
+                                            <input type="number" id="tourPrice" formControlName="tourPrice" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Is Hidden</label>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="isHideNo" formControlName="isHide" [value]="false" class="custom-control-input">
+                                                <label class="custom-control-label" for="isHideNo">No</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="isHideYes" formControlName="isHide" [value]="true" class="custom-control-input">
+                                                <label class="custom-control-label" for="isHideYes">Yes</label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="tourDescription">Tour Description</label>
-                      <textarea class="form-control" id="tourDescription" formControlName="tourDescription" rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="departure">Departure</label>
-                      <input type="number" class="form-control" id="departure" formControlName="departure" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="arrival">Arrival</label>
-                      <input type="number" class="form-control" id="arrival" formControlName="arrival" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="tourPrice">Tour Price</label>
-                      <input type="number" class="form-control" id="tourPrice" formControlName="tourPrice" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="isHide">Is Hidden</label>
-                      <select class="form-control" id="isHide" formControlName="isHide">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
-                      </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                  </form>
-                }
-              </div>
-            </div>
-          </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </section>
-  </div>
-</div>
+    </div>
+</body>
+</html>

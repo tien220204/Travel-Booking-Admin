@@ -14,23 +14,23 @@ export class TourAPIService {
   ) { }
 
   async findAll() {
-    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Tour/findAll'));
+    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Tour/getAllTour'));
   }
 
   async findById(id: string) {
-    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Tour/find/' + id));
+    return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Tour/getTourDetail/' + id));
   }
 
   async create(formData: FormData) {
-    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Tour/create', formData));
+    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Tour/AddTour', formData));
   }
 
   async update(formData: FormData) {
-    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Tour/update', formData));
+    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Tour/UpdateTour', formData));
   }
 
-  async delete(id: number) {
-    return lastValueFrom(this.httpClient.delete(this.baseUrlService.BaseUrl + 'Tour/delete/' + id));
+  async delete(id: string) {
+    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Tour/delete/' + id,{}));
   }
 
   async findAllDeleted() {

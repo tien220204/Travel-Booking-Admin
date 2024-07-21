@@ -17,7 +17,7 @@ import { EditAirportComponent } from './components/page/airport/edit/edit.compon
 
 
 import { HotelComponent } from './components/page/hotel/hotel.component';
-<<<<<<< HEAD
+
 import { ReviewComponent } from './components/page/review/review.component';
 import { AddReviewComponent } from './components/page/review/add/add.component';
 import { EditReviewComponent } from './components/page/review/edit/edit.component';

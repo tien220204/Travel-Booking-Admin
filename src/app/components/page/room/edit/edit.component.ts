@@ -24,22 +24,24 @@ export class EditRoomComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.editForm = this.formBuilder.group({
+      roomId: [''],
+      roomName: ['', Validators.required],
+      roomDescription: ['', Validators.required],
+      roomPrice: ['', Validators.required],
+      hotelId: ['', Validators.required],
+      numOfSingleBed: ['', Validators.required],
+      numOfDoubleBed: ['', Validators.required],
+      isHide: [false]
+    });
+
     this.activatedRoute.paramMap.subscribe(p => {
       let id = p.get('id');
       if (id) {
         this.roomApiService.findById(id).then(
           res => {
             let room = res as RoomDto;
-            this.editForm = this.formBuilder.group({
-              roomId: [room.roomId],
-              hotelId: [room.hotelId, Validators.required],
-              roomName: [room.roomName, Validators.required],
-              roomDescription: [room.roomDescription, Validators.required],
-              roomPrice: [room.roomPrice, Validators.required],
-              numOfSingleBed: [room.numOfSingleBed, Validators.required],
-              numOfDoubleBed: [room.numOfDoubleBed, Validators.required],
-              isHide: [room.isHide]
-            });
+            this.editForm.patchValue(room);
           },
           err => {
             console.error('Error fetching room:', err);
@@ -54,10 +56,10 @@ export class EditRoomComponent implements OnInit {
       let room: RoomDto = this.editForm.value;
       let formData = new FormData();
       formData.append('roomId', room.roomId.toString());
-      formData.append('hotelId', room.hotelId.toString());
       formData.append('roomName', room.roomName);
       formData.append('roomDescription', room.roomDescription);
       formData.append('roomPrice', room.roomPrice.toString());
+      formData.append('hotelId', room.hotelId.toString());
       formData.append('numOfSingleBed', room.numOfSingleBed.toString());
       formData.append('numOfDoubleBed', room.numOfDoubleBed.toString());
       formData.append('isHide', room.isHide.toString());

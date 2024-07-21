@@ -53,7 +53,7 @@
                         <td>{{ tour.tourPrice }}</td>
                         <td>{{ tour.isHide }}</td>
                         <td>
-                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(tour.tourId)">Delete</button> | 
+                          <button type="button" class="btn btn-sm btn-danger" (click)="delete(tour.tourId.toString())">Delete</button> | 
                           <a [routerLink]="['/edit-tour', {id: tour.tourId}]" class="btn btn-sm btn-success">Edit</a>
                         </td>
                       </tr>

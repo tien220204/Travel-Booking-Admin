@@ -21,19 +21,19 @@ export class ReviewAPIService {
     }
 
     async findById(id: string) {
-        return lastValueFrom(this.httpClient.get(this.baseUrlService.BaseUrl + 'Review/find/' + id));
+        return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Review/findById/' + id,{}));
     }
 
     async create(formData: FormData) {
-        return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Review/create', formData));
+        return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Review/AddReview', formData));
     }
 
     async update(formData: FormData) {
-        return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Review/update', formData));
+        return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Review/UpdateReview', formData));
     }
 
     async delete(id: string) {
-        return lastValueFrom(this.httpClient.delete(this.baseUrlService.BaseUrl + 'Review/delete/' + id));
+        return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Review/delete/' + id,{}));
     }
 
     async findAllDeleted() {

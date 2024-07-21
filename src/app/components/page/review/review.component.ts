@@ -58,7 +58,6 @@ export class ReviewComponent implements OnInit {
     formData.append('reviewStar', review.reviewStar);
     formData.append('reviewText', review.reviewText);
     formData.append('userId', review.userId.toString());
-    formData.append('userFullName', review.userFullName);
     formData.append('hotelId', review.hotelId.toString());
     formData.append('restaurantId', review.restaurantId.toString());
     formData.append('isHide', review.isHide);

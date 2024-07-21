@@ -22,15 +22,15 @@ export class RoomAPIService {
   }
 
   async create(formData: FormData) {
-    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Room/create', formData));
+    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Room/AddRoom', formData));
   }
 
   async update(formData: FormData) {
-    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Room/update', formData));
+    return lastValueFrom(this.httpClient.put(this.baseUrlService.BaseUrl + 'Room/UpdateRoom', formData));
   }
 
   async delete(id: string) {
-    return lastValueFrom(this.httpClient.delete(this.baseUrlService.BaseUrl + 'Room/delete/' + id));
+    return lastValueFrom(this.httpClient.post(this.baseUrlService.BaseUrl + 'Room/delete/' + id,{}));
   }
 
   async findAllDeleted() {
